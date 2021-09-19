@@ -1,0 +1,9 @@
+<div fxLayout="row wrap" fxLayoutAlign="start center">
+  <ng-container *ngFor="let pokemon of pokemons">
+    <mat-card class="card-container">
+      <img class="img" src="" />
+      <div>Nº: {{ pokemon.id }}</div>
+      <div class="name">{{ pokemon.name }}</div>
+    </mat-card>
+  </ng-container>
+</div>
