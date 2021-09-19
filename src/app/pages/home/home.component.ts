@@ -1,4 +1,4 @@
-import { Pokemon, Tipes } from './../../model/pokemon.model';
+import { Pokemon, Types } from './../../model/pokemon.model';
 import { PokemomService } from './../../services/pokemom.service';
 import { Component, OnInit } from '@angular/core';
 import { Sprites } from 'src/app/model/sprites.model';
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   pokemon = new Pokemon();
   abilidades:[];
-  tipos: Tipes[];
+  types: Types[];
   nome: any;
   img: any;
   spritesList: Sprites[];

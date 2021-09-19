@@ -1,13 +1,11 @@
-import { Sprites } from "./sprites.model";
 
-
-export class Tipes{
+export class Types{
   type: any;
 }
 
 export class Pokemon{
   id: number;
   name: string;
-  types: Tipes[];
+  types: Types[];
   abilities: any[];
 }
