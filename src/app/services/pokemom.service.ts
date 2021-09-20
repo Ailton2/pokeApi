@@ -14,8 +14,8 @@ export class PokemomService {
 
   constructor(private http: HttpClient) { }
 
-  getPokemom(nome: string):Observable<any>{
-    return this.http.get(this.BASE_URL+`/pokemon/${nome}`)
+  getPokemom(id: string):Observable<any>{
+    return this.http.get(this.BASE_URL+`/pokemon/${id}`)
   }
 
   getAllPokemons():Observable<Pokemon>{

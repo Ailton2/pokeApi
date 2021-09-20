@@ -3,9 +3,15 @@ export class Types{
   type: any;
 }
 
+export class Abilities{
+  ability: any;
+}
+
 export class Pokemon{
   id: number;
   name: string;
   types: Types[];
-  abilities: any[];
+  abilities: Abilities[];
+  weight: string;
+  height: string;
 }

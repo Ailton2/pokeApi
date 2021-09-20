@@ -1,6 +1,7 @@
 import { Pokemon } from './../../model/pokemon.model';
 import { Component, OnInit } from '@angular/core';
 import { PokemomService } from 'src/app/services/pokemom.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -10,7 +11,8 @@ import { PokemomService } from 'src/app/services/pokemom.service';
 export class PokemonCardComponent implements OnInit {
 
   pokemons: Pokemon[];
-  constructor(private pokemonService: PokemomService) { }
+  constructor(private pokemonService: PokemomService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getTodos();
@@ -27,7 +29,7 @@ export class PokemonCardComponent implements OnInit {
   }
 
   getDetalhes(id: any){
-    alert(id)
+    this.router.navigate(['/detalhe/'+id])
   }
 
 }

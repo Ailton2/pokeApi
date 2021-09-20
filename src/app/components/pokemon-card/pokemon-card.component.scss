@@ -1,9 +1,5 @@
-.mat-card {
-
-}
-
 .img{
-background: #F2F2F2;
+ background: #F2F2F2;
  width: 100%;
  height: 150px;
 }
@@ -17,27 +13,24 @@ background: #F2F2F2;
  padding: 14px;
  margin: 0 16px 36px 32px;
  width: 215px;
-}
+} 
 
 .name{
  font-size: 18px;
  font-weight: bolder;
-}
-
-.fire{
-  background-color: #FDDFDF ;
-}
-.bug{
-  background-color: #f8d5a3 ;
+ padding: 0 1px;
 }
 
 .types {
   display: flex;
+  flex-wrap: wrap;
+  padding: 5px 0px 0px 0px;
 }
 
 .type {
-  padding: 0 10px;
-  margin: 5px;
+  padding: 0 15px;
+  margin: 3px;
+  border-radius: 5px;
 }
 
 .number {

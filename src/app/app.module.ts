@@ -17,6 +17,9 @@ import { MatIconModule} from '@angular/material/icon';
 import { DetailsComponent } from './components/details/details.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { RouterModule } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule,
+    MatPaginatorModule,
 
   ],
   providers: [],

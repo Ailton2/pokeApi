@@ -10,6 +10,8 @@ const routes: Routes = [
    children: [
      {path:'detalhe/:id',component: DetailsComponent}
    ]}
+   ,
+   {path:'detalhe/:id',component: DetailsComponent}
 
 
 ];
