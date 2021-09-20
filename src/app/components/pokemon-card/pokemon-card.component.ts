@@ -15,11 +15,11 @@ export class PokemonCardComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.pokemons = []
     this.getTodos();
   }
 
   getTodos(){
-    this.pokemons = []
     this.pokemonService.getAllPokemons().subscribe((res: any) =>{
      if(res){
        this.pokemons = res
@@ -30,6 +30,10 @@ export class PokemonCardComponent implements OnInit {
 
   getDetalhes(id: any){
     this.router.navigate(['/detalhe/'+id])
+  }
+
+  public getSearch(value: string){
+    console.log(value)
   }
 
 }

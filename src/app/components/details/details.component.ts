@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
       this.pokemonService.getPokemom(id).subscribe((p) =>{
         this.img = p.sprites.other.dream_world.front_default;
         this.pokemon = p;
-       
+
       })
     }
   }

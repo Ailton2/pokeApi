@@ -1,0 +1,25 @@
+.conteiner {
+   padding: 5px;
+}
+mat-card{
+    width: 40%;
+    border-radius: 10px;
+    background-color: rgb(122, 122, 121);
+    
+}
+.form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem-calc(15) rem-calc(20);
+}
+input{
+    width: 95%;
+    background:none;
+    border: none;
+    outline: none;
+    color: white;
+    &::placeholder{
+    color: white;
+    }
+}

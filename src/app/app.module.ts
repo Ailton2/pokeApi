@@ -20,6 +20,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatPaginator } from '@angular/material/paginator';
     HomeComponent,
     DetailsComponent,
     PokemonCardComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonSearchComponent
   ],
   imports: [
     BrowserModule,
