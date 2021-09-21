@@ -1,30 +1,35 @@
 import { Pokemon } from './../../model/pokemon.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PokemomService } from 'src/app/services/pokemom.service';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pokemon-card',
   templateUrl: './pokemon-card.component.html',
   styleUrls: ['./pokemon-card.component.scss']
 })
-export class PokemonCardComponent implements OnInit {
+export class PokemonCardComponent implements OnInit, OnDestroy {
 
   public pokemons: Pokemon[];
   private setPokemons: Pokemon[];
   public pageSlice: any;
   pageSize: number = 5;
 
-  constructor(private pokemonService: PokemomService,
-    private router: Router) { }
+  destroy$: Subject<boolean> = new Subject<boolean>();
 
-  ngOnInit(): void {
+  constructor(private pokemonService: PokemomService,
+    private router: Router) {
+    this.pageSlice = [];
     this.getTodos();
   }
 
+  ngOnInit(): void { }
+
   getTodos() {
-    this.pokemonService.getAllPokemons().subscribe((res: any) => {
+    this.pokemonService.getAllPokemons().pipe(takeUntil(this.destroy$)).subscribe((res: any) => {
       if (res) {
         this.setPokemons = res;
         this.pokemons = this.setPokemons;
@@ -54,4 +59,9 @@ export class PokemonCardComponent implements OnInit {
     this.pageSlice = this.pokemons.slice(startIndex, endIndex);
   }
 
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+    console.log("saiu")
+  }
 }

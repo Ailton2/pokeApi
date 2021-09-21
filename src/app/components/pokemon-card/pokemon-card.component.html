@@ -2,7 +2,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-evenly">
   <ng-container *ngFor="let pokemon of pageSlice.slice(0,pageSize)">
     <mat-card class="card-container" (click)="getDetalhes(pokemon.id)">
-      <img class="img"
+      <img class="img" id="up"
         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{pokemon.id}}.svg" />
       <div class="number">Nº: {{ pokemon.id }}</div>
       <div class="name">{{ pokemon.name.toLowerCase() }}</div>
