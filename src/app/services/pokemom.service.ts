@@ -9,7 +9,6 @@ import { Observable, of } from 'rxjs';
 export class PokemomService {
 
   private BASE_URL = ' https://pokeapi.co/api/v2';
-  private url : string = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100';
   pokemons:any=[];
 
   constructor(private http: HttpClient) { }
@@ -19,16 +18,13 @@ export class PokemomService {
   }
 
   getAllPokemons():Observable<Pokemon>{
-    for(let i = 1; i <= 150;i++){
+    this.pokemons = []
+    for(let i = 1; i <= 350;i++){
         this.http.get(this.BASE_URL+`/pokemon/${i}`).subscribe((res) =>{
           this.pokemons.push(res)
         })
     }
     return of(this.pokemons);
-  }
-
-  get listPokemons():Observable<any>{
-    return this.http.get<any>(this.url)
   }
 
 }

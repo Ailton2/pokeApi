@@ -4,7 +4,8 @@ import { PokemomService } from 'src/app/services/pokemom.service';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { delay, takeUntil } from 'rxjs/operators';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -17,16 +18,16 @@ export class PokemonCardComponent implements OnInit, OnDestroy {
   private setPokemons: Pokemon[];
   public pageSlice: any;
   pageSize: number = 5;
-
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private pokemonService: PokemomService,
-    private router: Router) {
-    this.pageSlice = [];
-    this.getTodos();
+    private router: Router,
+    public loadingService: LoadingService) {
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.getTodos();
+  }
 
   getTodos() {
     this.pokemonService.getAllPokemons().pipe(takeUntil(this.destroy$)).subscribe((res: any) => {
@@ -36,6 +37,7 @@ export class PokemonCardComponent implements OnInit, OnDestroy {
         this.pageSlice = res;
       }
     })
+    
   }
 
   getDetalhes(id: any) {
@@ -62,6 +64,5 @@ export class PokemonCardComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
-    console.log("saiu")
   }
 }

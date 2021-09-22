@@ -12,7 +12,7 @@ export class DetailsComponent implements OnInit {
 
   pokemon = new Pokemon();
   img: any;
-  img2: any;
+
   constructor(private routerActive: ActivatedRoute,
               private pokemonService: PokemomService,
               private router: Router) { }
@@ -22,7 +22,6 @@ export class DetailsComponent implements OnInit {
     if (id != null) {
       this.pokemonService.getPokemom(id).subscribe((p) =>{
         this.img = p.sprites.other.dream_world.front_default;
-        this.img2 = p.sprites.front_default;
         this.pokemon = p;
         console.log(this.pokemon)
       })

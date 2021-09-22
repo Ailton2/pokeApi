@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,8 +19,9 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
 import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InterceptInterceptor } from './services/intercept.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,15 @@ import { PokemonSearchComponent } from './components/pokemon-search/pokemon-sear
     MatIconModule,
     RouterModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule
+
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@
       <img src="../assets/img/pokebola.png" alt="">
       <span>Quem é esse Pokémon?</span>
     </mat-toolbar>
+    <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
